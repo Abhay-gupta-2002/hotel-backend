@@ -11,7 +11,7 @@ passport.use(
           return done(null, false, { message: 'User not found' });
         }
 
-        const isMatch =  user.comparePassword(password);
+        const isMatch = await user.comparePassword(password);
         if (isMatch) {
           return done(null, user);
         } else {
